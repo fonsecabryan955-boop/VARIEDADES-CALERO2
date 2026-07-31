@@ -1,0 +1,126 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f7f5f2;
+  color: #2a2a2a;
+}
+
+/* LOGIN */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #8b3a5c, #d4a574);
+}
+
+.login-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-form h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
+.login-form p { margin: 0 0 1.5rem; color: #777; }
+.login-form label { display: block; margin-bottom: 1rem; font-size: 0.9rem; color: #444; }
+.login-form input {
+  width: 100%; padding: 0.6rem; margin-top: 0.3rem;
+  border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+}
+.login-form button {
+  width: 100%; padding: 0.7rem; background: #8b3a5c; color: white;
+  border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; margin-top: 0.5rem;
+}
+.error-msg { color: #c0392b; font-size: 0.85rem; }
+
+/* ADMIN LAYOUT */
+.admin-layout { display: flex; min-height: 100vh; }
+.admin-sidebar {
+  width: 220px; background: #2a2a2a; color: white;
+  padding: 1.5rem 1rem; display: flex; flex-direction: column;
+}
+.admin-sidebar h2 { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.admin-sidebar nav { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.admin-sidebar nav a {
+  color: #ccc; text-decoration: none; padding: 0.6rem 0.8rem; border-radius: 6px;
+}
+.admin-sidebar nav a.active, .admin-sidebar nav a:hover { background: #8b3a5c; color: white; }
+.admin-sidebar-footer { border-top: 1px solid #444; padding-top: 1rem; font-size: 0.85rem; }
+.admin-sidebar-footer button {
+  width: 100%; padding: 0.5rem; background: transparent; color: #ccc;
+  border: 1px solid #555; border-radius: 6px; cursor: pointer; margin-top: 0.5rem;
+}
+.admin-content { flex: 1; padding: 2rem; }
+
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.page-header button, .filtros-reporte button, .btn-cobrar {
+  background: #8b3a5c; color: white; border: none; padding: 0.6rem 1.2rem;
+  border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+}
+
+/* TABLES */
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
+th, td { padding: 0.7rem; text-align: left; border-bottom: 1px solid #eee; }
+.fila-producto { cursor: pointer; }
+.fila-producto:hover { background: #f9f4f1; }
+.stock-bajo { color: #c0392b; font-weight: bold; }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.modal-form {
+  background: white; padding: 2rem; border-radius: 10px; width: 360px;
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+.modal-form label { font-size: 0.9rem; }
+.modal-form input, .modal-form select { width: 100%; padding: 0.5rem; margin-top: 0.3rem; border: 1px solid #ddd; border-radius: 6px; }
+.checkbox-label { display: flex; align-items: center; gap: 0.5rem; }
+.checkbox-label input { width: auto; margin: 0; }
+.modal-botones { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; }
+.modal-botones button { padding: 0.5rem 1rem; border-radius: 6px; border: none; cursor: pointer; }
+.modal-botones button[type="submit"] { background: #8b3a5c; color: white; }
+
+/* CAJA */
+.caja-container { max-width: 420px; }
+.caja-resumen { background: white; padding: 1.2rem; border-radius: 8px; margin-bottom: 1rem; }
+.form-caja { display: flex; flex-direction: column; gap: 0.8rem; }
+.form-caja input { padding: 0.6rem; border: 1px solid #ddd; border-radius: 6px; }
+.form-caja button { background: #8b3a5c; color: white; border: none; padding: 0.7rem; border-radius: 6px; cursor: pointer; }
+
+/* POS */
+.pos-layout { display: grid; grid-template-columns: 1fr 380px; gap: 1.5rem; margin-top: 1rem; }
+.pos-busqueda input { width: 100%; padding: 0.7rem; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 1rem; }
+.resultado-producto { background: white; padding: 0.8rem; border-radius: 8px; margin-bottom: 0.6rem; }
+.lista-variantes-pos { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.btn-variante { padding: 0.4rem 0.7rem; border: 1px solid #ddd; background: #f7f5f2; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+.btn-variante:disabled { opacity: 0.4; cursor: not-allowed; }
+.pos-carrito { background: white; padding: 1rem; border-radius: 8px; }
+.item-carrito { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 0.5rem; padding: 0.5rem 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
+.controles-cantidad { display: flex; align-items: center; gap: 0.4rem; }
+.controles-cantidad button { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #ddd; background: white; cursor: pointer; }
+.pos-total { font-size: 1.2rem; margin: 1rem 0; text-align: right; }
+.pos-carrito select { width: 100%; padding: 0.5rem; margin: 0.5rem 0; border-radius: 6px; border: 1px solid #ddd; }
+.btn-cobrar { width: 100%; padding: 0.8rem; font-size: 1rem; }
+.mensaje-pos { margin-top: 0.8rem; font-size: 0.9rem; }
+
+/* ORDENES */
+.orden-card { background: white; padding: 1.2rem; border-radius: 8px; margin-bottom: 1rem; }
+.orden-header { display: flex; gap: 1rem; align-items: center; margin-bottom: 0.5rem; }
+.badge-pago { padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; }
+.badge-pagado { background: #d4edda; color: #155724; }
+.badge-pendiente { background: #fff3cd; color: #856404; }
+
+/* REPORTES */
+.filtros-reporte { display: flex; gap: 1rem; align-items: end; margin-bottom: 1.5rem; }
+.filtros-reporte label { font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.filtros-reporte input { padding: 0.5rem; border: 1px solid #ddd; border-radius: 6px; }
+.tarjetas-resumen { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.tarjeta { background: white; padding: 1rem; border-radius: 8px; }
+.tarjeta h3 { margin: 0 0 0.4rem; font-size: 0.85rem; color: #777; }
+.tarjeta p { margin: 0; font-size: 1.3rem; font-weight: bold; }
